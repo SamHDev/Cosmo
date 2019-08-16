@@ -1,0 +1,1 @@
+data/skill/demo_skill\demo.txt

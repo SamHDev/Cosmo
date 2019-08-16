@@ -1,0 +1,7 @@
+{
+  "name": "Demo Skill",
+  "authors": ["SamHDev"],
+  "version": 1,
+  "update_url": null,
+  "main": "skill.py"
+}
