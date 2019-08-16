@@ -3,6 +3,8 @@ import requests
 
 from .version import CosmoVersion
 from .api import CosmoDeviceAPI
+from .wifi import CosmoWifi,CosmoWifiHotspot
+from . import reset as cosmo_reset
 
 
 # CosmoDevice Class This holds the device info from files, along side version checker and api for Cosmo. Kept it
@@ -25,6 +27,11 @@ class CosmoDevice:
         self.update = CosmoVersion(self)  # Version Check/Updater
         self.api = CosmoDeviceAPI(self)  # CosmoDeviceAPI
 
+        self.wifi = CosmoWifi(self)
+        self.hotspot = CosmoWifiHotspot(self)
+
+        self.reset = cosmo_reset
+
     def load(self):
         # Load the device manifest. Kept put in file than hardcoded because saves time later down the road if
         # multiple devices are involved, that way we just use the same software
@@ -40,6 +47,7 @@ class CosmoDevice:
         self.is_setup = file_data["setup"]
 
         self.update.load()  # Load Update Files for Version Check/Updater API
+        self.hotspot.load()
 
     def prepare(self):
         self.api.prepare()  # Prepare Web API

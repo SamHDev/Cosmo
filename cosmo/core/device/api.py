@@ -128,7 +128,7 @@ class CosmoDeviceAPI:
                 "setup": self.device.is_setup
             })
 
-        @self.web.route("/setup/request_setup")
+        @self.web.route("/setup/request")
         def setup_request():
             if not self.device.is_setup:
                 if len(self.setup_tokens) != 0:
@@ -164,13 +164,13 @@ class CosmoDeviceAPI:
                 return api_response(data={"key": "device_name", "value": self.device.name})
 
         # Device Name Setup Value Writer
-        @self.web.route("/setup/value/device_name", methods=["GET"])
-        def setup_value_get_device_name():
+        @self.web.route("/setup/value/wifi", methods=["GET"])
+        def setup_value_get_wifi():
             if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
-                return api_response(data={"key": "device_name", "value": self.device.name})
+                return api_response(data={"key": "device_name", "value": {"ssid": self.device.wifi.ssid, "pass": None}})
 
-        @self.web.route("/setup/value/device_name", methods=["POST"])
-        def setup_value_set_device_name():
+        @self.web.route("/setup/value/wifi", methods=["POST"])
+        def setup_value_set_wifi():
             if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
                 device_name = flask.request.form.get("value", default=None)
                 if device_name == None:
