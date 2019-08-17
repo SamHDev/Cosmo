@@ -3,7 +3,7 @@ import requests
 
 from .version import CosmoVersion
 from .api import CosmoDeviceAPI
-from .wifi import CosmoWifi,CosmoWifiHotspot
+from .wifi import *
 from . import reset as cosmo_reset
 
 
@@ -48,6 +48,7 @@ class CosmoDevice:
 
         self.update.load()  # Load Update Files for Version Check/Updater API
         self.hotspot.load()
+        self.wifi.load()
 
     def prepare(self):
         self.api.prepare()  # Prepare Web API

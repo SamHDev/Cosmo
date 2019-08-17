@@ -1,6 +1,7 @@
 {
   "wifi": {
-    "ssid": null,
-    "password": null
-  }
+    "ssid": "TrincoInternet",
+    "password": "X3xnQC3TRD9k"
+  },
+  "modem": "wlp5s0"
 }

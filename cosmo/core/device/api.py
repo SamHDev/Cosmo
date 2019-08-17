@@ -172,15 +172,11 @@ class CosmoDeviceAPI:
         @self.web.route("/setup/value/wifi", methods=["POST"])
         def setup_value_set_wifi():
             if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
-                device_name = flask.request.form.get("value", default=None)
-                if device_name == None:
+                ssid = flask.request.form.get("ssid", default=None)
+                password = flask.request.form.get("password", default=None)
+                if ssid == None or password == None:
                     return api_error(400, "Invalid Value")
-                if len(device_name) < 4:
-                    return api_error(400, "Invalid Value, Must be larger than 4 characters")
-                if len(device_name) > 32:
-                    return api_error(400, "Invalid Value, Must be smaller than 32 characters")
-                file_data = json.load(open("data/device/data.json"))
-                file_data["name"] = device_name
+
                 with open("data/device/data.json", "w") as f:
                     f.write(json.dumps(file_data))
                 self.device.load()
