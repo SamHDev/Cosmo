@@ -55,6 +55,15 @@ class CosmoDevice:
 
         # self.start_wifi()  # Start Wifi Call (to be called from main (session) class
 
+        # Check if we have a modem
+        if self.wifi.modem is None:
+            self.wifi.modem = self.wifi.find_modem()
+            self.wifi.save()
+            if self.wifi.modem is None:
+                self.wifi.logger.error("Invalid Wifi Interface. Failed to find one")
+        if self.hotspot.modem is None:
+            self.hotspot.modem = self.wifi.find_modem()
+
     def start_wifi(self):
         # Wifi Management
         if self.wifi.status()[0]:

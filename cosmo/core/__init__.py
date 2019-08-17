@@ -40,8 +40,6 @@ class Cosmo:
         if self.device.update.check_update():
             pass
 
-        print(self.device.wifi.find_modem())
-
     # Start Function (Starts the reset of the uttlery shite code)
     def start(self):
         self.logger.sep()

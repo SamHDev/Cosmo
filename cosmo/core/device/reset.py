@@ -13,7 +13,7 @@ def reset_device_files():
         f.write(json.dumps({"pass_keys": [], "users_keys": [], "auth_keys": {}}))
 
     with open("data/device/wifi.json", "w") as f:
-        f.write(json.dumps({"wifi": {"ssid": None, "password": None}, "modem": "wlan0"}))
+        f.write(json.dumps({"wifi": {"ssid": None, "password": None}, "modem": None}))
 
 
 def reset_user_files():
