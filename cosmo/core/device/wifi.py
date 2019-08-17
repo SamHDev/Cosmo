@@ -14,7 +14,11 @@ class CosmoWifi:
         data = json.loads(open("data/device/wifi.json"))
 
     def connect(self):
-        wireless.Wireless
+        data = self.wifi.connect(self.wifi_ssid,self.wifi_password)
+        print(data)
+
+    def configured(self):
+        return not (None in [self.wifi_ssid,self.wifi_password])
 
 
 class CosmoWifiHotspot:

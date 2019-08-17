@@ -17,7 +17,7 @@ class CosmoVersion:
 
     def load(self):
         # Load Data from Update File.
-        file_update = json.load(open("data/device/update.json"))
+        file_update = json.load(open("data/device/core/update.json"))
         self.version_number = file_update["version_number"]
         self.version_id = file_update["version_id"]
         self.version_hash = file_update["version_hash"]
@@ -36,7 +36,7 @@ class CosmoVersion:
                 self.device.cosmo.logger.error("Failed to connect to Updater Service: " + data["data"]["error"])
             else:
                 self.device.cosmo.logger.debug("Successfully Received New Update Hash from Server")
-                file_update = json.load(open("data/device/update.json"))
+                file_update = json.load(open("data/device/core/update.json"))
                 file_update["version_hash"] = data["data"]["new_hash"]
                 with open("data/device/update.json", "w") as f:
                     f.write(json.dumps(file_update))

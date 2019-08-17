@@ -35,7 +35,7 @@ class CosmoDevice:
     def load(self):
         # Load the device manifest. Kept put in file than hardcoded because saves time later down the road if
         # multiple devices are involved, that way we just use the same software
-        file_device = json.load(open("data/device/device.json"))
+        file_device = json.load(open("data/device/core/device.json"))
         self.serial = file_device["id"]  # Serial Code
         self.device_type = file_device["device"]["type"]  # Device Type e.g. CosmoHome
         self.device_manufacturer = file_device["device"]["manufacturer"]  # Device Manufacturer (Us silly billy)
@@ -51,6 +51,7 @@ class CosmoDevice:
 
     def prepare(self):
         self.api.prepare()  # Prepare Web API
+        self.wifi.connect()
 
     def start(self):
         # Just Testing. to be called from Cosmo Main (Session) Class

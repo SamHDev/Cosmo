@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cosmo/core/device/reset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/user/info.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing/mobile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing/mobilewifi.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/sam02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/sam02.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cosmo/core/device/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosmo/core/device/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/version.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cosmo/core/device/wifi.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/wifi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/device/device.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/device/core/device.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/device/update.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/device/core/update.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/device/wifi.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/device/wifi.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -227,6 +219,7 @@
       <workItem from="1565895332763" duration="19287000" />
       <workItem from="1565984470056" duration="3407000" />
       <workItem from="1565989040486" duration="5557000" />
+      <workItem from="1566000510683" duration="606000" />
     </task>
     <servers />
   </component>
@@ -283,13 +276,14 @@
     </ignored-roots>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CosmoHome$fs.coverage" NAME="fs Coverage Results" MODIFIED="1565401557430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/api" />
-    <SUITE FILE_PATH="coverage/CosmoHome2$mobile.coverage" NAME="mobile Coverage Results" MODIFIED="1565987880685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CosmoHome$demo.coverage" NAME="demo Coverage Results" MODIFIED="1564968860792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CosmoHome$speech.coverage" NAME="speech Coverage Results" MODIFIED="1564930501607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
-    <SUITE FILE_PATH="coverage/CosmoHome$skills.coverage" NAME="skills Coverage Results" MODIFIED="1564892696273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
     <SUITE FILE_PATH="coverage/CosmoHome2$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1565990044751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CosmoHome$speech2.coverage" NAME="speech2 Coverage Results" MODIFIED="1564928366783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
     <SUITE FILE_PATH="coverage/CosmoHome$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1565965324109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CosmoHome$skills.coverage" NAME="skills Coverage Results" MODIFIED="1564892696273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
+    <SUITE FILE_PATH="coverage/cosmo_py_sam$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1566001112315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CosmoHome$speech.coverage" NAME="speech Coverage Results" MODIFIED="1564930501607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
+    <SUITE FILE_PATH="coverage/CosmoHome2$mobile.coverage" NAME="mobile Coverage Results" MODIFIED="1565987880685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CosmoHome$demo.coverage" NAME="demo Coverage Results" MODIFIED="1564968860792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CosmoHome$fs.coverage" NAME="fs Coverage Results" MODIFIED="1565401557430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/api" />
   </component>
 </project>
