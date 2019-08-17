@@ -28,7 +28,7 @@ class CosmoVersion:
         # You probably understand this shit, no commenting needed.
         self.device.cosmo.logger.debug("Connecting to Updater Service to request fresh update key")
         try:
-            r = requests.post("http://cosmosmarthome.com/updater/newkey",
+            r = requests.post("https://api.cosmosmarthome.com/updater/newkey",
                               data={"serial": self.device.serial, "key": self.version_hash})
             data = r.json()
             # print(data)
@@ -49,7 +49,7 @@ class CosmoVersion:
         # You probably understand this shit, no commenting needed.
         self.device.cosmo.logger.debug("Connecting to Updater Service to request latest version details")
         try:
-            r = requests.post("http://cosmosmarthome.com/updater/check",
+            r = requests.post("https://cosmosmarthome.com/updater/check",
                               data={"serial": self.device.serial, "key": self.version_hash})
             data = r.json()
             # print(data)
