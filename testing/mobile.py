@@ -25,3 +25,4 @@ print("3| Set Wifi Details")
 with open("mobilewifi.txt", "r") as f:
     wifi_ssid, wifi_pass = f.read().split(":", 1)
 r = requests.post(url + "/setup/wifi", params={"token": token}, data={"ssid": wifi_ssid, "password": wifi_pass})
+print(r.text)

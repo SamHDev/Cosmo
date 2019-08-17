@@ -30,7 +30,7 @@ class Cosmo:
     def prepare(self):
         self.logger.sep()
         self.device.load()
-        #self.device.update.check_update()
+        # self.device.update.check_update()
 
         skills = find_skills(self)
         load_skills(self, skills)
@@ -40,12 +40,13 @@ class Cosmo:
         if self.device.update.check_update():
             pass
 
-
+        print(self.device.wifi.find_modem())
 
     # Start Function (Starts the reset of the uttlery shite code)
     def start(self):
         self.logger.sep()
-        self.logger.info(f"Starting {self.device.device_type}/{self.device.device_version} running {self.device.update.version_number}")
+        self.logger.info(
+            f"Starting {self.device.device_type}/{self.device.device_version} running {self.device.update.version_number}")
 
         self.logger.ok("Starting Network Wifi")
         self.device.start_wifi()
@@ -72,4 +73,3 @@ class Cosmo:
         self.logger.sep()
         # Listen Bitch
         self.trigger_rec.listen()
-

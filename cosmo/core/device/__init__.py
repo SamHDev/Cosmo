@@ -57,9 +57,11 @@ class CosmoDevice:
 
     def start_wifi(self):
         # Wifi Management
-        self.wifi.disconnect()  # Force Disconnect to stop errors.
+        if self.wifi.status()[0]:
+            self.wifi.disconnect()  # Force Disconnect to stop errors.
         if self.wifi.configured():
-            self.wifi.connect()
+            #self.wifi.connect()
+            self.hotspot.start()
         else:
             self.hotspot.start()
 

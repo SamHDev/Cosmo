@@ -9,14 +9,8 @@ def reset_device_files():
     with open("data/device/data.json", "w") as f:
         f.write(json.dumps({"setup": False, "name": None}))
 
-    with open("data/device/data.json", "w") as f:
-        f.write(json.dumps({"setup": False, "setup_date": None}))
-
     with open("data/device/auth.json", "w") as f:
         f.write(json.dumps({"pass_keys": [], "users_keys": [], "auth_keys": {}}))
-
-    with open("data/device/wifi.json", "w") as f:
-        f.write(json.dumps({"wifi": {"ssid": None, "password": None}}))
 
     with open("data/device/wifi.json", "w") as f:
         f.write(json.dumps({"wifi": {"ssid": None, "password": None}, "modem": "wlan0"}))

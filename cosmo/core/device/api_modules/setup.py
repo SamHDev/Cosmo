@@ -1,5 +1,7 @@
 from ..web import *
 import json
+import uuid
+
 
 def register(self):
     @self.web.route("/setup/check")
@@ -21,12 +23,12 @@ def register(self):
             return api_error(403, "Setup Locked. Device already setup")
 
     # Device Name Setup Value Writer
-    @self.web.route("/setup/value/device_name", methods=["GET"])
+    @self.web.route("/setup/device_name", methods=["GET"])
     def setup_value_get_device_name():
         if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
-            return api_response(data={"key": "device_name", "value": self.device.name})
+            return api_response(data={"device_value": self.device.name})
 
-    @self.web.route("/setup/value/device_name", methods=["POST"])
+    @self.web.route("/setup/device_name", methods=["POST"])
     def setup_value_set_device_name():
         if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
             device_name = flask.request.form.get("value", default=None)
@@ -41,15 +43,16 @@ def register(self):
             with open("data/device/data.json", "w") as f:
                 f.write(json.dumps(file_data))
             self.device.load()
-            return api_response(data={"key": "device_name", "value": self.device.name})
+            return api_response(data={"device_name": self.device.name})
 
     # Device Name Setup Value Writer
-    @self.web.route("/setup/value/wifi", methods=["GET"])
+    @self.web.route("/setup/wifi", methods=["GET"])
     def setup_value_get_wifi():
         if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
-            return api_response(data={"key": "device_name", "value": {"ssid": self.device.wifi.ssid, "pass": None}})
+            return api_response(
+                data={"ssid": self.device.wifi.wifi_ssid, "password": "*" * len(self.device.wifi.wifi_password)})
 
-    @self.web.route("/setup/value/wifi", methods=["POST"])
+    @self.web.route("/setup/wifi", methods=["POST"])
     def setup_value_set_wifi():
         if (not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens:
             ssid = flask.request.form.get("ssid", default=None)
@@ -57,7 +60,8 @@ def register(self):
             if ssid == None or password == None:
                 return api_error(400, "Invalid Value")
 
-            with open("data/device/data.json", "w") as f:
-                f.write(json.dumps(file_data))
-            self.device.load()
-            return api_response(data={"key": "device_name", "value": self.device.name})
+            self.device.wifi.wifi_ssid = ssid
+            self.device.wifi.wifi_password = password
+            self.device.wifi.save()
+            return api_response(
+                data={"ssid": self.device.wifi.wifi_ssid, "password": "*" * len(self.device.wifi.wifi_password)})

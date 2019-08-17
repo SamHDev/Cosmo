@@ -23,6 +23,8 @@ class CosmoWifi:
         # Custom Logger time from that lengthy import above
         self.logger = CosmoSkillLogger("WifiManager")
 
+        self._register_exit_handler()
+
     # Check if we can run nmcli on linux
     @staticmethod
     def check_platform():
@@ -83,13 +85,29 @@ class CosmoWifi:
         return "successfully" in out
 
     def save(self):
+        with open("data/device/wifi.json", "r") as f:
+            data = json.loads(f.read())
+        data["wifi"]["ssid"] = self.wifi_ssid
+        data["wifi"]["password"] = self.wifi_password
+        data["modem"] = self.modem
         with open("data/device/wifi.json", "w") as f:
-            f.write("close")
+            f.write(json.dumps(data))
 
-    @atexit.register
-    def _exit_handler(self):
-        self.logger.warn("Stopping Wifi Connection, as was not closed before code exit. ")
-        self.disconnect()
+    def find_modem(self):
+        try:
+            data = re.compile(r"([a-zA-Z0-9]+) *wifi").findall(subprocess.check_output(f"{nmcli} d", shell=True).decode("UTF-8"))
+            return data[0]
+        except IndexError:
+            return None
+        except subprocess.SubprocessError:
+            return None
+
+    def _register_exit_handler(self):
+        @atexit.register
+        def _exit_handler():
+            if self.status()[0]:
+                self.logger.warn("Stopping Wifi Connection, as was not closed before code exit. ")
+                self.disconnect()
 
 
 class CosmoWifiHotspot:
@@ -103,6 +121,11 @@ class CosmoWifiHotspot:
         # Custom Logger time from that lengthy import above
         self.logger = CosmoSkillLogger("WifiHotspot")
 
+        self._register_exit_handler()
+
+    def status(self):
+        return CosmoWifi.status(self) # Works, Trust me.
+
     def load(self):
         if self.ssid is None:
             ssid_number = str(int(self.device.serial.split("-", 1)[0], 16) / 10000).split(".", 1)[1]
@@ -112,19 +135,19 @@ class CosmoWifiHotspot:
 
     def start(self):
         self.logger.debug(f"Starting Hotspot on '{self.modem}'")
-        if not CosmoWifi.check_platform():
+        if not self.check_platform():
             self.logger.warn("Failed to Execute 'WIFI Hotspot Start' due to platform compatibility Issues.")
             return None
         cmd = f"{nmcli} d wifi hotspot ifname \"{self.modem}\" con-name \"{self.con_name}\" ssid \"{self.ssid}\""
         try:
-            out = subprocess.check_output(cmd, shell=True)
+            out = subprocess.check_output(cmd, shell=True).decode("UTF-8")
         except subprocess.CalledProcessError:
             return False
         self.logger.debug(f"Created Hotspot '{self.ssid}' on {self.modem}")
         return "successfully" in out
 
     def stop(self):
-        if not CosmoWifi.check_platform():
+        if not self.check_platform():
             self.logger.warn("Failed to Execute 'WIFI Hotspot Stop' due to platform compatibility Issues.")
             return None
         self.logger.debug(f"Stopping hotspot '{self.ssid}' on interface {self.modem}")
@@ -135,7 +158,12 @@ class CosmoWifiHotspot:
             return False
         return "successfully" in out
 
-    @atexit.register
-    def _exit_handler(self):
-        self.logger.warn("Stopping Hotspot Connection, as was not closed before code exit. ")
-        self.stop()
+    def _register_exit_handler(self):
+        @atexit.register
+        def _exit_handler():
+            if self.status()[0]:
+                self.logger.warn("Stopping Hotspot Connection, as was not closed before code exit. ")
+                self.stop()
+
+    def check_platform(self):
+        return CosmoWifi.check_platform()
