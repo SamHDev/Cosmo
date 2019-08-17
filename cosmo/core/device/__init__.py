@@ -5,7 +5,7 @@ from .version import CosmoVersion
 from .api import CosmoDeviceAPI
 from .wifi import *
 from . import reset as cosmo_reset
-
+from . import machine
 
 # CosmoDevice Class This holds the device info from files, along side version checker and api for Cosmo. Kept it
 # separate from the Main Cosmo (Session) Class because it's got nothing to do with the main Skill Running and
@@ -31,6 +31,7 @@ class CosmoDevice:
         self.hotspot = CosmoWifiHotspot(self)
 
         self.reset = cosmo_reset
+        self.machine = machine
 
     def load(self):
         # Load the device manifest. Kept put in file than hardcoded because saves time later down the road if
