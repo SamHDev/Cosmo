@@ -53,7 +53,7 @@ class CosmoDevice:
     def prepare(self):
         self.api.prepare()  # Prepare Web API
 
-        self.start_wifi()  # Start Wifi Call (to be called from main (session) class
+        # self.start_wifi()  # Start Wifi Call (to be called from main (session) class
 
     def start_wifi(self):
         # Wifi Management
@@ -66,5 +66,6 @@ class CosmoDevice:
     def start(self):
         # Just Testing. to be called from Cosmo Main (Session) Class
         # self.update.refresh_key()
-        self.update.check_update()  # Check Update Version
+        #self.update.check_update()  # Check Update Version
+
         self.api.start_threaded()  # Start API Server

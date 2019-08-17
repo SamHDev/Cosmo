@@ -42,3 +42,6 @@ class CosmoLogger:
     def debug(self, msg):
         if self.print_debug:
             self.log("DBUG", msg)
+
+    def sep(self):
+        print("-" * 70)
