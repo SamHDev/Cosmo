@@ -52,7 +52,16 @@ class CosmoDevice:
 
     def prepare(self):
         self.api.prepare()  # Prepare Web API
-        self.wifi.connect()
+
+        self.start_wifi()  # Start Wifi Call
+
+    def start_wifi(self):
+        # Wifi Management
+        self.wifi.disconnect()  # Force Disconnect to stop errors.
+        if self.wifi.configured():
+            self.wifi.connect()
+        else:
+            self.hotspot.start()
 
     def start(self):
         # Just Testing. to be called from Cosmo Main (Session) Class

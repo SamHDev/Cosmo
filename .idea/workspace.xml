@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/wifi.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/wifi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosmo/core/device/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +217,7 @@
       <workItem from="1565984470056" duration="3407000" />
       <workItem from="1565989040486" duration="5557000" />
       <workItem from="1566000510683" duration="7783000" />
-      <workItem from="1566009508349" duration="3331000" />
+      <workItem from="1566009508349" duration="3596000" />
     </task>
     <servers />
   </component>
