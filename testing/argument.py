@@ -33,11 +33,23 @@ for intent in intents:
     for phrase in intent.phrases:
         score = 0
         score_max = len(query_words)
+        phrase_arguments = {}
+        for argname in re.compile(r"{(.*)}").findall(phrase)
+            phrase_arguments[argname] = []
         for phrase_word in phrase.lower().split(" "):
+            phrase_args = re.compile(r"{(.*)}").findall(phrase_word)
+            phrase_arg = (len(phrase_args) != 0)
+            if phrase_arg:
+                phrase_argname = phrase_args[0][0]
+            else:
+                phrase_argname = None
             for query_word in query_words:
                 similar_result = similar(query_word, phrase_word)
                 if similar_result >= similar_threshold:
                     print("MATCHING WORD", query_word)
                     score = score + 1
+                    query_words.remove(query_word)
                     break
+                else:
+                    phrase_arg
         print(phrase, score / score_max, score, score_max)
