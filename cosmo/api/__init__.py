@@ -3,6 +3,7 @@ from . import intent
 from . import actions
 from . import fs
 from . import logger
+from . import contexts
 
 
 # API Wrapper (New API System)
@@ -24,6 +25,8 @@ class API:
 
         # Make classes for api to use
         self.fs = fs.CosmoFS(self)  # FileSystem API
+        self.context = contexts.CosmoContexts(self) # Context API
+
 
     def _set_cosmo(self, cosmo):
         # Cosmo Function Write

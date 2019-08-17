@@ -24,6 +24,8 @@ class Cosmo:
 
         self.device = CosmoDevice(self)
 
+        self.contexts = {}
+
     # Prepare Function (For Preloading shit)
     def prepare(self):
         self.device.load()
