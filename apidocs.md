@@ -18,7 +18,7 @@ Example Manifest
   "update_url": null,
   "main": "skill.py"
 }
- ```
+```
  
  Manifest Values
  
