@@ -53,7 +53,7 @@ class CosmoDevice:
     def prepare(self):
         self.api.prepare()  # Prepare Web API
 
-        self.start_wifi()  # Start Wifi Call
+        self.start_wifi()  # Start Wifi Call (to be called from main (session) class
 
     def start_wifi(self):
         # Wifi Management

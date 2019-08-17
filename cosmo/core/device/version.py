@@ -6,6 +6,7 @@ import requests
 def get_version_int(name):
     return int(name.replace(".", ""))
 
+
 # Cosmo Version Main Class
 class CosmoVersion:
     def __init__(self, device):
@@ -49,8 +50,9 @@ class CosmoVersion:
         # You probably understand this shit, no commenting needed.
         self.device.cosmo.logger.debug("Connecting to Updater Service to request latest version details")
         try:
-            r = requests.post("https://cosmosmarthome.com/updater/check",
+            r = requests.post("https://api.cosmosmarthome.com/updater/check",
                               data={"serial": self.device.serial, "key": self.version_hash})
+            # print(r.text)
             data = r.json()
             # print(data)
             if not data["status"]["success"]:
@@ -68,7 +70,7 @@ class CosmoVersion:
 
         except:
             import traceback
-            # traceback.print_exc()
+            traceback.print_exc()
             self.device.cosmo.logger.error("Failed to connect to Updater Service")
             return None
 
