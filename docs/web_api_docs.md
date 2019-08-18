@@ -1,3 +1,5 @@
+
+
 # Cosmo Device Web API
 Documentation for those whom wish to use the web api in apps
 
