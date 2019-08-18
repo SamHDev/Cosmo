@@ -17,6 +17,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="typing.KeysView.__getitem__" />
+          <option value="list.__getitem__" />
         </list>
       </option>
     </inspection_tool>
