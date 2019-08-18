@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testing/argument2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/argtypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/argtypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/contexts.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/contexts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/fs.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/fs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/intent.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/intent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/skill.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/skill.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/api_modules/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/api_modules/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/api_modules/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/api_modules/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/machine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/reset.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/reset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/updater.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/web.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/wifi.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/wifi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition2.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/skills.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/speech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/web_api_docs.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/web_api_docs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing/argument.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/argument.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing/mobile.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/mobile.py" afterDir="false" />
-    </list>
+    <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +220,7 @@
       <workItem from="1566047045316" duration="5830000" />
       <workItem from="1566058798631" duration="227000" />
       <workItem from="1566059035540" duration="31551000" />
-      <workItem from="1566094007345" duration="7982000" />
+      <workItem from="1566094007345" duration="8257000" />
     </task>
     <servers />
   </component>

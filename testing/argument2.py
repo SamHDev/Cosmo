@@ -62,8 +62,8 @@ def find_intent(intents, query, s_threshold=0.8):
                 if last_group_result is None:
                     last_group_result = found
 
-                if last_group_result != found:  # If Chnage of time
-                    grouping.append([current_grouping, last_group_result])
+                if last_group_result != found:  # If Found State Changes
+                    grouping.append([current_grouping, last_group_result]) # Add Working Group to Group list
                     current_grouping = []
                     last_group_result = found
                 current_grouping.append(a)
