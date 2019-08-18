@@ -79,7 +79,7 @@ def register(self):
             data={"ssid": self.device.wifi.wifi_ssid, "password": "*" * len(self.device.wifi.wifi_password)})
 
     @self.web.route("/setup/wifi", methods=["PUT"])
-    def setup_value_set_wifi():
+    def setup_value_command_wifi():
         if not ((not self.device.is_setup) and flask.request.args.get("token", default=None) in self.setup_tokens):
             return api_error(403, "Requires Setup Token")
         if not self.device.wifi.configured():

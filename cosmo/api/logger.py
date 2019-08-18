@@ -19,7 +19,7 @@ def _log(text):
     sys.stdout.flush()
 
 
-class CosmoSkillLogger:
+class SkillLogger:
     def __init__(self, app_name, debug=False):
         self.print_debug = debug
         self.app_name = app_name

@@ -4,7 +4,7 @@
 # Written by Sam Huddart <sam02h.huddart@gmail.com>, August 2019
 # Licensed to CosmoHome on a Temporary Basis. This may be revoked at any time.
 
-class CosmoTriggerRecognition:
+class TriggerRecognition:
     def __init__(self,cosmo):
         self.cosmo = cosmo
 
@@ -14,7 +14,7 @@ class CosmoTriggerRecognition:
         self.cosmo.chrome.socket.send("cmd.listen")
         self.listening = True
 
-class CosmoSpeechRecognition:
+class SpeechRecognition:
     def __init__(self,cosmo):
         self.cosmo = cosmo
 

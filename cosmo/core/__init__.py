@@ -4,7 +4,7 @@
 # Written by Sam Huddart <sam02h.huddart@gmail.com>, August 2019
 # Licensed to CosmoHome on a Temporary Basis. This may be revoked at any time.
 
-from .logger import CosmoLogger
+from .logger import Logger
 from .skills import find_skills, load_skills
 from .message import find_intent, execute_intent
 # from .recognition import * #Demo Voice Rec
@@ -18,15 +18,15 @@ from .device import CosmoDevice
 class Cosmo:
     def __init__(self):
         # Create Logger
-        self.logger = CosmoLogger(debug=True)
+        self.logger = Logger(debug=True)
 
         # Create Empty Lists for Skills to load
         self.modules = []
         self.skills = []
 
         # Create Recognition Objects
-        self.trigger_rec = CosmoTriggerRecognition(self)
-        self.command_rec = CosmoSpeechRecognition(self)
+        self.trigger_rec = TriggerRecognition(self)
+        self.command_rec = SpeechRecognition(self)
 
         self.device = CosmoDevice(self)
 

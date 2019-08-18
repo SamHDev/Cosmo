@@ -65,13 +65,15 @@ def find_intent(intents, query, s_threshold=0.8):
                 if last_group_result != found:  # If Found State Changes
                     grouping.append([current_grouping, last_group_result])  # Add Working Group to Group list
                     current_grouping = []  # Clear List
-                    last_group_result = found # Set New State
-                current_grouping.append(a) # Add Item to Working Group
+                    last_group_result = found  # Set New State
+                current_grouping.append(a)  # Add Item to Working Group
 
-            grouping.append([current_grouping, last_group_result])
+            grouping.append([current_grouping, last_group_result])  # Add Last Group to Phrase Group List
 
             print(grouping)
 
+
+# Demo Stuff
 
 string = IntentArgumentType("String", r"([a-zA-Z0-9]*)")
 

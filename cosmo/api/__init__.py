@@ -27,18 +27,18 @@ class API:
         self.module = fs.get_invoking_module(2)
 
         # Make Sub-Logger
-        self.logger = logger.CosmoSkillLogger(self.name)
+        self.logger = logger.SkillLogger(self.name)
 
         # Make classes for api to use
-        self.fs = fs.CosmoFS(self)  # FileSystem API
-        self.context = contexts.CosmoContexts(self) # Context API
+        self.fs = fs.FileAPI(self)  # FileSystem API
+        self.context = contexts.Contexts(self) # Context API
 
 
     def _set_cosmo(self, cosmo):
         # Cosmo Function Write
         self.cosmo = cosmo
         self.logger = cosmo.logger
-        self.actions = actions.CosmoActions(self)
+        self.actions = actions.Actions(self)
 
 
         # self.find_skills() #Just an Idea Call

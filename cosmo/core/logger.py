@@ -18,7 +18,7 @@ def _log(text):
     sys.stdout.flush()
 
 
-class CosmoLogger:
+class Logger:
     def __init__(self, debug=False, app_name=None):
         self.print_debug = debug
         self.app_name = app_name

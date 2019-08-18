@@ -36,7 +36,7 @@ def get_manifest(api):
 
 
 # File System Class
-class CosmoFS:
+class FileAPI:
     def __init__(self, session):
         self.session = session
 
@@ -46,11 +46,11 @@ class CosmoFS:
 
     # Request a file from the local skill directory with a CosmoFile Wrapper
     def request_skill_file(self, file):
-        return CosmoFile(self.request_skill_file_path(file))
+        return File(self.request_skill_file_path(file))
 
     # Request a file from the local skill directory with a CosmoJsonFile Wrapper
     def request_skill_file_json(self, file):
-        return CosmoJsonFile(self.request_skill_file_path(file))
+        return JsonFile(self.request_skill_file_path(file))
 
     # Request a path from the skill config/data directory
     def request_data_file_path(self, file):
@@ -58,15 +58,15 @@ class CosmoFS:
 
     # Request a file from the skill config/data directory with a CosmoFile Wrapper
     def request_data_file(self, file):
-        return CosmoFile(self.request_data_file_path(file))
+        return File(self.request_data_file_path(file))
 
     # Request a file from the skill config/data directory with a CosmoJsonFile Wrapper
     def request_data_file_json(self, file):
-        return CosmoJsonFile(self.request_data_file_path(file))
+        return JsonFile(self.request_data_file_path(file))
 
 
 # CosmoFile Wrapper
-class CosmoFile:
+class File:
     def __init__(self, file):
         self.file = file
 
@@ -112,9 +112,9 @@ class CosmoFile:
             self.create(data=data)
 
 
-class CosmoJsonFile(CosmoFile):
+class JsonFile(File):
     def __init__(self, file):
-        CosmoFile.__init__(self, file)
+        File.__init__(self, file)
         self.data = None
 
     def create(self, data=None):

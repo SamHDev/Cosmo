@@ -7,8 +7,8 @@
 import json
 import requests
 
-from .version import CosmoVersion
-from .api import CosmoDeviceAPI
+from .version import Version
+from .api import DeviceAPI
 from .wifi import *
 from . import reset as cosmo_reset
 from . import machine
@@ -30,11 +30,11 @@ class CosmoDevice:
         self.is_setup = None
 
         # Create our api vars
-        self.update = CosmoVersion(self)  # Version Check/Updater
-        self.api = CosmoDeviceAPI(self)  # CosmoDeviceAPI
+        self.update = Version(self)  # Version Check/Updater
+        self.api = DeviceAPI(self)  # CosmoDeviceAPI
 
-        self.wifi = CosmoWifi(self)
-        self.hotspot = CosmoWifiHotspot(self)
+        self.wifi = Wifi(self)
+        self.hotspot = WifiHotspot(self)
 
         self.reset = cosmo_reset
         self.machine = machine

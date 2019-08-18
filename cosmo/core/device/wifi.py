@@ -11,13 +11,13 @@ import subprocess
 import re
 import platform
 import atexit
-from ...api.logger import CosmoSkillLogger
+from ...api.logger import SkillLogger
 
 nmcli = "nmcli"
 
 
 # Cosmo Wifi Class - For Connecting to Wifi Networks and Reading Wifi Config
-class CosmoWifi:
+class Wifi:
     def __init__(self, device):
         self.device = device
 
@@ -27,7 +27,7 @@ class CosmoWifi:
         self.modem = None
 
         # Custom Logger time from that lengthy import above
-        self.logger = CosmoSkillLogger("WifiManager")
+        self.logger = SkillLogger("WifiManager")
 
         self._register_exit_handler()
 
@@ -116,7 +116,9 @@ class CosmoWifi:
                 self.disconnect()
 
 
-class CosmoWifiHotspot:
+
+
+class WifiHotspot:
     def __init__(self, device):
         self.device = device
         self.ssid = None
@@ -125,12 +127,15 @@ class CosmoWifiHotspot:
         self.con_name = "cosmo_host"
 
         # Custom Logger time from that lengthy import above
-        self.logger = CosmoSkillLogger("WifiHotspot")
+        self.logger = SkillLogger("WifiHotspot")
 
         self._register_exit_handler()
 
     def status(self):
-        return CosmoWifi.status(self) # Works, Trust me.
+        return Wifi.status(self) # Works, Trust me.
+
+    def check_platform(self):
+        return Wifi.check_platform()
 
     def load(self):
         if self.ssid is None:
@@ -170,6 +175,3 @@ class CosmoWifiHotspot:
             if self.status()[0]:
                 self.logger.warn("Stopping Hotspot Connection, as was not closed before code exit. ")
                 self.stop()
-
-    def check_platform(self):
-        return CosmoWifi.check_platform()

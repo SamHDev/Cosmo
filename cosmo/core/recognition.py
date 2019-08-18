@@ -9,7 +9,7 @@ import pocketsphinx
 from .handler import find_intent, execute_intent
 
 
-class CosmoTriggerRecognition:
+class TriggerRecognition:
     def __init__(self, cosmo):
         self.cosmo = cosmo
         self.thd = None
@@ -36,7 +36,7 @@ class CosmoTriggerRecognition:
         self.callback_func = func
 
 
-class CosmoSpeechRecognition:
+class SpeechRecognition:
     def __init__(self, cosmo):
         self.cosmo = cosmo
         self.thd = None

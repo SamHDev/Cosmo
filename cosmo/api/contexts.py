@@ -6,13 +6,13 @@
 
 # Simple Cosmo Context Class
 
-class CosmoContexts:
+class Contexts:
     def __init__(self, api):
         self.api = api
 
         self.used = []
 
-        self.types = CosmoSetContextsTypes
+        self.types = SetContextsTypes
 
     # Put Function
     def put(self, name, value):
@@ -55,7 +55,7 @@ class CosmoContexts:
 
 
 # Set Context Names for Inter-usage
-class CosmoSetContextsTypes:
+class SetContextsTypes:
     Location = "cosmo.location"  # e.g. For use in Weather
     Name = "cosmo.person_name"  # e.g. For Use in contacts?
     Word = "cosmo.lang_word"  # e.g. for use in dict/spell word

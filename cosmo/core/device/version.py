@@ -14,7 +14,7 @@ def get_version_int(name):
 
 
 # Cosmo Version Main Class
-class CosmoVersion:
+class Version:
     def __init__(self, device):
         self.device = device
         self.version_number = None

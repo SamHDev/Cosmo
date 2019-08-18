@@ -7,7 +7,7 @@
 import random
 
 # Demo Actions API
-class CosmoActions:
+class Actions:
     def __init__(self, api):
         self.api = api
 

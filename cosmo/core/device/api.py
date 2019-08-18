@@ -15,9 +15,9 @@ from .web import *
 from .api_modules import info,setup
 
 
-class CosmoDeviceAPI(CosmoWebServer):
+class DeviceAPI(WebServer):
     def __init__(self, device):
-        CosmoWebServer.__init__(self, device)
+        WebServer.__init__(self, device)
 
         self.api_version = "1.0"
         self.setup_tokens = []

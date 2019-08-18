@@ -9,9 +9,9 @@ from gevent.pywsgi import WSGIServer
 import threading
 import json
 
-from ...api.logger import CosmoSkillLogger
+from ...api.logger import SkillLogger
 
-class CosmoWebServer:
+class WebServer:
     def __init__(self, device):
         self.device = device
         self.cosmo = device.cosmo
@@ -20,7 +20,7 @@ class CosmoWebServer:
         self.host = "0.0.0.0"
         self.port = 12890
 
-        self.logger = CosmoSkillLogger("WebSvr")
+        self.logger = SkillLogger("WebSvr")
 
     def start(self):
         # self.web.run(self.host, self.port)

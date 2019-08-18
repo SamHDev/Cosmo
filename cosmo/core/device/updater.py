@@ -6,7 +6,7 @@
 
 # Version Updater will be here
 
-class CosmoUpdater:
+class Updater:
     def __init__(self, device):
         self.device = device
         self.cosmo = device.cosmo
