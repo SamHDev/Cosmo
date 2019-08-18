@@ -63,10 +63,10 @@ def find_intent(intents, query, s_threshold=0.8):
                     last_group_result = found
 
                 if last_group_result != found:  # If Found State Changes
-                    grouping.append([current_grouping, last_group_result]) # Add Working Group to Group list
-                    current_grouping = []
-                    last_group_result = found
-                current_grouping.append(a)
+                    grouping.append([current_grouping, last_group_result])  # Add Working Group to Group list
+                    current_grouping = []  # Clear List
+                    last_group_result = found # Set New State
+                current_grouping.append(a) # Add Item to Working Group
 
             grouping.append([current_grouping, last_group_result])
 
