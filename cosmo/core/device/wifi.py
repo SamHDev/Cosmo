@@ -115,9 +115,6 @@ class Wifi:
                 self.logger.warn("Stopping Wifi Connection, as was not closed before code exit. ")
                 self.disconnect()
 
-
-
-
 class WifiHotspot:
     def __init__(self, device):
         self.device = device
