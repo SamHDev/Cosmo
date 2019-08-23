@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/actions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cosmo/api/argtypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/argtypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/contexts.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/contexts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/intent.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/intent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/skill.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/skill.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/machine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/reset.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/reset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/updater.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/device/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition2.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/skills.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing/argument2.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/argument2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,6 +30,11 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last.edited.regexp" value="{test}" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -254,7 +245,8 @@
       <workItem from="1566317590396" duration="10099000" />
       <workItem from="1566519403304" duration="13189000" />
       <workItem from="1566581468771" duration="890000" />
-      <workItem from="1566582506394" duration="2308000" />
+      <workItem from="1566582506394" duration="3516000" />
+      <workItem from="1566597261673" duration="3362000" />
     </task>
     <servers />
   </component>

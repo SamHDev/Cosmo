@@ -31,23 +31,24 @@ class IntentArgumentType:
         self.name = name
 
     def check(self, query):
-        return True
+        return True, False
 
 
-def IntentArgumentTypeFromRegex(name, regex):
+def IntentArgumentTypeFromRegex(name, regex, caster):
     class SubIntentArgument(IntentArgumentType):
         def __init__(self):
             IntentArgumentType.__init__(self, name)
             self.regex = regex
+            self.caster = caster
 
         def get_regex(self):
             return re.compile(self.regex)
 
         def check(self, query):
-            print(self.get_regex().findall(query))
-            return len(self.get_regex().findall(query)) == 1
+            #print(self.get_regex().findall(query))
+            return len(self.get_regex().findall(query)) == 1, caster(query)
 
-    return SubIntentArgument()
+    return SubIntentArgument
 
 
 # Sim Ratio Function
@@ -230,7 +231,8 @@ def find_search(intent, phrase, query, thresh):
         arg = intent.find_argument(arg_name)
 
         # Check Arg Types
-        if arg.atype.check(arg_data):
+        check, arg_data = arg.atype.check(arg_data)
+        if check:
             score += 0.25  # Add Argument Filler Weight
         else:
             score -= 1  # Add Argument Filler Weight
@@ -268,7 +270,7 @@ def find_intent(intents, query, s_threshold=0.8, r_threshold=4):
 
 # Demo Stuff
 
-string = IntentArgumentTypeFromRegex("String", r"([a-zA-Z0-9 ]+)")
+string = IntentArgumentTypeFromRegex("String", r"([a-zA-Z0-9 ]+)", str)()
 
 intent_list = []
 

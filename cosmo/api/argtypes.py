@@ -1,53 +1,61 @@
 import re
 
+
 # Argument Type Shit
-# This is testing, not implemented just trying out some snytax and shit
 
 # Base the IntentArgumentType
+class IntentArgument:
+    def __init__(self, name, atype):
+        self.name = name
+        self.atype = atype
+
+
 class IntentArgumentType:
-    def __init__(self):
-        pass
+    def __init__(self, name):
+        self.name = name
 
-    def check(self, value):
-        return None, None
+    def check(self, query):
+        return True, False
 
-    @staticmethod
-    def test_regex(regex, value):
-        search = re.compile(regex).findall(value)
-        if len(search) == 1:
-            return True, search[0][0]
-        else:
-            return False, None
+
+def IntentArgumentTypeFromRegex(name, regex, caster):
+    class SubIntentArgument(IntentArgumentType):
+        def __init__(self):
+            IntentArgumentType.__init__(self, name)
+            self.regex = regex
+            self.caster = caster
+
+        def get_regex(self):
+            return re.compile(self.regex)
+
+        def check(self, query):
+            # print(self.get_regex().findall(query))
+            return len(self.get_regex().findall(query)) == 1, caster(query)
+
+    return SubIntentArgument()
+
 
 # Argument Type List
 class ArgumentType:
-    class Word(IntentArgumentType):
-        def check(self, value):
-            return self.test_regex(r"([a-zA-Z]{0,})}", value)
+    class Word(IntentArgumentTypeFromRegex):
+        def __init__(self):
+            super().__init__("Word", r"([a-zA-Z]+)}", str)
 
-    class String(IntentArgumentType):
-        def check(self, value):
-            return self.test_regex(r"([a-zA-Z ]{0,})}", value)
+    class String(IntentArgumentTypeFromRegex):
+        def __init__(self):
+            super().__init__("Word", r"([a-zA-Z ]+)}", str)
 
-    class Any(IntentArgumentType):
-        def check(self, value):
-            return self.test_regex(r"([.]{0,})}", value)
+    class Any(IntentArgumentTypeFromRegex):
+        def __init__(self):
+            super().__init__("Word", r"([.]*)}", str)
 
-    class Int(IntentArgumentType):
-        def check(self, value):
-            success, value = self.test_regex(r"([0-9]{0,})}", value)
-            if success:
-                return success, int(value)
-            else:
-                return success, value
+    class Int(IntentArgumentTypeFromRegex):
+        def __init__(self):
+            super().__init__("Word", r"([0-9]{0,})}", int)
 
-    class Float(IntentArgumentType):
-        def check(self, value):
-            success, value = self.test_regex(r"([0-9\.]{0,})}", value)
-            if success:
-                return success, float(value)
-            else:
-                return success, value
+    class Float(IntentArgumentTypeFromRegex):
+        def __init__(self):
+            super().__init__("Word", r"([0-9\.]{0,})}", float)
 
     class Boolean(IntentArgumentType):
         def check(self, value):
