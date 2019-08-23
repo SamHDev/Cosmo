@@ -44,7 +44,8 @@ def IntentArgumentTypeFromRegex(name, regex):
             return re.compile(self.regex)
 
         def check(self, query):
-            return len(self.get_regex().findall(query)) != 0
+            print(self.get_regex().findall(query))
+            return len(self.get_regex().findall(query)) == 1
 
     return SubIntentArgument()
 
@@ -253,9 +254,10 @@ def find_intent(intents, query, s_threshold=0.8, r_threshold=4):
     # Search Through All Results
     best = [0, None, None, {}]
     for res in results:
-        if res[0] > best[0]:
+        if res[0] > best[0]:  # Compare and Contrast as well as I did in my GCSE English Exam
             best = res
 
+    # Check if our best result is as good as it should be.
     if best[0] < r_threshold:
         return False, None, best[0], None
 
@@ -266,7 +268,7 @@ def find_intent(intents, query, s_threshold=0.8, r_threshold=4):
 
 # Demo Stuff
 
-string = IntentArgumentTypeFromRegex("String", r"([a-zA-Z0-9]*)")
+string = IntentArgumentTypeFromRegex("String", r"([a-zA-Z0-9 ]+)")
 
 intent_list = []
 
@@ -275,7 +277,6 @@ intent.phrases.append("whats the time in {city} along {city2}")
 intent.phrases.append("what time is it in {city} along {city2}")
 intent.arguments.append(IntentArgument("city", string))
 intent.arguments.append(IntentArgument("city2", string))
-
 intent_list.append(intent)
 
 print(find_intent(intent_list, "whats the time in London Bridge along epic gamer"))
