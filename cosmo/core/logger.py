@@ -1,6 +1,10 @@
 import sys
 import datetime
 
+# Copyright (C) 2019 CosmoHome, LLC
+# Unauthorized copying and usage of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+
 # Logger Config Handler
 logger_default_appname = "Cosmo"
 logger_config = {"format": 0, "debug": True, "color": True}

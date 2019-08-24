@@ -14,11 +14,6 @@ from ...api.logger import SkillLogger
 
 nmcli = "nmcli"
 
-
-# Sam's Wifi Manager
-# Written by SamHDev (https://github.com/samhdev)
-# Do not modify or remove without Permission
-
 # Cosmo Wifi Class - For Connecting to Wifi Networks and Reading Wifi Config
 class Wifi:
     def __init__(self, device):
