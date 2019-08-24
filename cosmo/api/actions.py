@@ -1,5 +1,9 @@
 import random
 
+# Copyright (C) 2019 CosmoHome, LLC
+# Unauthorized copying and usage of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+
 # Demo Actions API
 class Actions:
     def __init__(self, api):

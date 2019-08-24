@@ -5,6 +5,9 @@ from . import fs
 from . import logger
 from . import contexts
 
+# Copyright (C) 2019 CosmoHome, LLC
+# Unauthorized copying and usage of this file, via any medium is strictly prohibited
+# Proprietary and confidential
 
 # API Wrapper (New API System)
 class API:
