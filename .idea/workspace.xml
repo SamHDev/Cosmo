@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cosmo/api/fs.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/fs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/api/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/speech.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/discovery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosmo/core/device/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosmo/core/device/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/web.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +248,7 @@
       <workItem from="1566581468771" duration="890000" />
       <workItem from="1566582506394" duration="3516000" />
       <workItem from="1566597261673" duration="5452000" />
-      <workItem from="1566646614468" duration="1916000" />
+      <workItem from="1566646614468" duration="3391000" />
     </task>
     <servers />
   </component>
