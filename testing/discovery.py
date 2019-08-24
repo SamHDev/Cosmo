@@ -10,10 +10,12 @@ class DiscoveryServer:
         self.running = False
 
     def listen(self):
-        self.sock.bind(self.host, self.port)
+        self.sock.bind((self.host, self.port))
         self.running = True
         self._handle()
 
     def _handle(self):
         while self.running:
+            self.bu
+
 

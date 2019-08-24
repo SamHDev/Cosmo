@@ -1,3 +1,7 @@
+# Copyright (C) 2019 CosmoHome, LLC
+# Unauthorized copying and usage of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+
 SKILL_DIR = "skills/"
 
 # Skill Loader Class (Quick Fix from glebs code) (Much better in my opinion)
