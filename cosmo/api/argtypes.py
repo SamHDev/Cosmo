@@ -31,6 +31,7 @@ class IntentArgumentTypeFromRegex(IntentArgumentType):
     def get_regex(self):
         return re.compile(self.regex)
 
+
     def check(self, query):
         # print(self.get_regex().findall(query))
         return len(self.get_regex().findall(query)) == 1, self.caster(query)
