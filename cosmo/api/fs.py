@@ -29,8 +29,13 @@ def get_invoking_module(depth):
 
 # Manifest Getter. Returns Name, Authors and Version
 def get_manifest(api):
-    data = json.load(open(os.path.join(api.path, "skill.json")))
-    return data["name"], data["authors"], data["version"]
+    with open(os.path.join(api.path, "skill.json")) as file:
+        data = json.load(file)
+        return data["name"], data["authors"], data["version"]
+
+def get_phrases(api,language):
+    with open(os.path.join(api.path, f"phrases/{language}.json")) as file:
+        return json.load(file)
 
 
 # File System Class

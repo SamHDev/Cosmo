@@ -8,6 +8,7 @@ from . import intent
 class Skill:
     def __init__(self):
         self.intents = []
+        self.find_intents()
 
     def register_intent(self, intent):
         self.intents.append(intent)
