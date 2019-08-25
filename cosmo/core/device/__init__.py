@@ -10,6 +10,7 @@ from .api import DeviceAPI
 from .wifi import *
 from . import reset as cosmo_reset
 from . import machine
+from . import discovery
 
 # CosmoDevice Class This holds the device info from files, along side version checker and api for Cosmo. Kept it
 # separate from the Main Cosmo (Session) Class because it's got nothing to do with the main Skill Running and
@@ -33,6 +34,7 @@ class CosmoDevice:
 
         self.wifi = Wifi(self)
         self.hotspot = WifiHotspot(self)
+        self.discovery = discovery.CosmoDeviceDiscovery(self)
 
         self.reset = cosmo_reset
         self.machine = machine
@@ -83,5 +85,5 @@ class CosmoDevice:
         # Just Testing. to be called from Cosmo Main (Session) Class
         # self.update.refresh_key()
         #self.update.check_update()  # Check Update Version
-
+        self.discovery.listen()
         self.api.start_threaded()  # Start API Server

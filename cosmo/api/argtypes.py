@@ -22,21 +22,19 @@ class IntentArgumentType:
         return True, False
 
 
-def IntentArgumentTypeFromRegex(name, regex, caster):
-    class SubIntentArgument(IntentArgumentType):
-        def __init__(self):
-            IntentArgumentType.__init__(self, name)
-            self.regex = regex
-            self.caster = caster
+class IntentArgumentTypeFromRegex(IntentArgumentType):
+    def __init__(self, name, regex, caster):
+        IntentArgumentType.__init__(self, name)
+        self.regex = regex
+        self.caster = caster
 
-        def get_regex(self):
-            return re.compile(self.regex)
+    def get_regex(self):
+        return re.compile(self.regex)
 
-        def check(self, query):
-            # print(self.get_regex().findall(query))
-            return len(self.get_regex().findall(query)) == 1, caster(query)
+    def check(self, query):
+        # print(self.get_regex().findall(query))
+        return len(self.get_regex().findall(query)) == 1, self.caster(query)
 
-    return SubIntentArgument()
 
 
 # Argument Type List

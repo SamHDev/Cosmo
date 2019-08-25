@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3f6a8a7-849e-40dc-8370-822fdc8ed755" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cosmo/core/device/discovery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cosmo/core/device/discoveryapi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/discovery_docs.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/discover-client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/discovery-server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CosmoHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CosmoHome.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition2.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/recognition_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/recognition_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/skills.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cosmo/core/speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/speech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commit.sh" beforeDir="false" afterPath="$PROJECT_DIR$/testing/commit.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosmo/api/argtypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/api/argtypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cosmo/core/device/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cosmo/core/device/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing/discovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/discovery.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +44,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last.edited.regexp" value="{test}" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,18 +56,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\Python\PyCharm\CosmoHome\cosmo\core" />
-      <recent name="D:\Code\Python\PyCharm\CosmoHome\skills\demo" />
-      <recent name="D:\Code\Python\PyCharm\CosmoHome\cosmo\assets\sounds" />
-      <recent name="D:\Code\Python\PyCharm\CosmoHome\cosmo" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/testing" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="D:\Code\Python\PyCharm\CosmoHome2\testing" />
       <recent name="D:\Code\Python\PyCharm\CosmoHome2\data\device" />
       <recent name="D:\Code\Python\PyCharm\CosmoHome2\data\device\core" />
-      <recent name="D:\Code\Python\PyCharm\CosmoHome2\data\user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
+      <recent name="D:\Code\Python\PyCharm\CosmoHome\cosmo\core" />
+      <recent name="D:\Code\Python\PyCharm\CosmoHome\skills\demo" />
+      <recent name="D:\Code\Python\PyCharm\CosmoHome\cosmo\assets\sounds" />
+      <recent name="D:\Code\Python\PyCharm\CosmoHome\cosmo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,51 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cosmo">
-    <configuration name="argument" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="CosmoHome" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing/argument.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="argument2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="CosmoHome" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing/argument2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.discover-client">
     <configuration name="cosmo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CosmoHome" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mobile (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="discover-client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CosmoHome" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -161,7 +119,51 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing/mobile.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing/discover-client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="discovery-server" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CosmoHome" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing/discovery-server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="discovery" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CosmoHome" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing/discovery.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -193,19 +195,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.argument" />
-      <item itemvalue="Python.argument2" />
       <item itemvalue="Python.cosmo" />
       <item itemvalue="Python.mobile" />
-      <item itemvalue="Python.mobile (1)" />
+      <item itemvalue="Python.discovery" />
+      <item itemvalue="Python.discovery-server" />
+      <item itemvalue="Python.discover-client" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.cosmo" />
+        <item itemvalue="Python.discovery-server" />
+        <item itemvalue="Python.discover-client" />
+        <item itemvalue="Python.discovery" />
         <item itemvalue="Python.mobile" />
-        <item itemvalue="Python.argument2" />
-        <item itemvalue="Python.argument" />
-        <item itemvalue="Python.mobile (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -254,7 +256,7 @@
       <workItem from="1566581468771" duration="890000" />
       <workItem from="1566582506394" duration="3516000" />
       <workItem from="1566597261673" duration="5452000" />
-      <workItem from="1566646614468" duration="4116000" />
+      <workItem from="1566646614468" duration="23019000" />
     </task>
     <servers />
   </component>
@@ -313,8 +315,11 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CosmoHome2$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1565990044751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CosmoHome$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1565965324109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cosmo_py_sam$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1566650727090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cosmo_py_sam$discover_client.coverage" NAME="discover-client Coverage Results" MODIFIED="1566655273761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/cosmo_py_sam$discovery_server.coverage" NAME="discovery-server Coverage Results" MODIFIED="1566748251247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
+    <SUITE FILE_PATH="coverage/cosmo_py_sam$cosmo.coverage" NAME="cosmo Coverage Results" MODIFIED="1566754448164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CosmoHome2$mobile.coverage" NAME="mobile Coverage Results" MODIFIED="1565987880685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cosmo_py_sam$discovery.coverage" NAME="discovery Coverage Results" MODIFIED="1566651012078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
     <SUITE FILE_PATH="coverage/CosmoHome$speech2.coverage" NAME="speech2 Coverage Results" MODIFIED="1564928366783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
     <SUITE FILE_PATH="coverage/CosmoHome$skills.coverage" NAME="skills Coverage Results" MODIFIED="1564892696273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cosmo/core" />
     <SUITE FILE_PATH="coverage/cosmo_py_sam$argument.coverage" NAME="argument Coverage Results" MODIFIED="1566099362587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testing" />
