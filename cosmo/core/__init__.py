@@ -33,7 +33,7 @@ class Cosmo:
         # self.device.update.check_update()
 
         skills = find_skills(self)
-        load_skills(self, skills)
+        #load_skills(self, skills)
 
         self.device.prepare()
 

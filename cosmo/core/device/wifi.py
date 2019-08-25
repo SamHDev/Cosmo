@@ -49,7 +49,7 @@ class Wifi:
     def status(self):
         if not self.check_platform():
             self.logger.warn("Failed to Execute 'Status Check' due to platform compatibility Issues.")
-            return None
+            return False, None
         self.logger.debug(f"Checking Status of interface '{self.modem}'")
         try:
             out = subprocess.check_output(f"{nmcli} d show {self.modem}", shell=True).decode("UTF-8")

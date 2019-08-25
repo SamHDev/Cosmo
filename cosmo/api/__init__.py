@@ -24,7 +24,7 @@ class API:
         self.module = fs.get_invoking_module(2)
 
         # Load phrases
-        self.phrases = fs.get_phrases(self,"en")
+        self.phrases = fs.get_phrases(self, "en")
 
         # Make Sub-Logger
         self.logger = logger.SkillLogger(self.name)
