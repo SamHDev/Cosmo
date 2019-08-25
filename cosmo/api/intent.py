@@ -33,12 +33,16 @@ class Intent:
         pass
 
     # Add Phrases, Arguments and Callbacks
-    def add_phrase(self, phrase_name: str, custom_argument_types=None):
+    def add_phrase(self, phrase_name: str, custom_argument_types=None, dev_mode=True):
         if not phrase_name in self.api.phrases.keys():
-            raise PhraseNotFoundError
+            if dev_mode == False:
+                raise PhraseNotFoundError()
+            text = phrase_name
+        else:
+            text = self.api.phrases[phrase_name]
 
 
-        self.phrases.append(IntentPhrase(self.api.phrases[phrase_name]))
+        self.phrases.append(IntentPhrase(text))
         for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))",
                               self.api.phrases[phrase_name]):
             # Get class of argument type
