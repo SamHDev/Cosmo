@@ -21,7 +21,7 @@ class API:
         self.logger = logger.SkillLogger(self.name,debug=debug)
 
         # Load phrases
-        self.phrases = fs.get_phrases(self,"en")
+        self.phrases = fs.get_phrases(self, "en")
 
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
