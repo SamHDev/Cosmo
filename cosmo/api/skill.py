@@ -3,6 +3,7 @@
 # Proprietary and confidential
 
 from . import intent
+from functools import wraps
 
 # Skill Wrapper
 class Skill:

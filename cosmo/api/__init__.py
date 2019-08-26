@@ -5,6 +5,7 @@ from . import fs
 from cosmo import logger
 from . import contexts
 
+
 # Copyright (C) 2019 CosmoHome, LLC
 # Unauthorized copying and usage of this file, via any medium is strictly prohibited
 # Proprietary and confidential
@@ -15,8 +16,9 @@ class API:
         # Prepare Class types and Vars
         self.cosmo = None
         self.Skill = skill.Skill
-        #self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
+        # self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
         self.Intent = intent.Intent
+        self.IntentHandler = intent.getIntentHandler(self)  # New Decorator for Glebs Intent System
         self.skills_buffer = []
 
         # Load Manifest and find module path.
@@ -32,8 +34,9 @@ class API:
 
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
-        self.context = contexts.Contexts(self) # Context API
+        self.context = contexts.Contexts(self)  # Context API
 
+        self.api_skill = skill.Skill(self)  # Global Skill for Gleb's Awsome Register System
 
     def _set_cosmo(self, cosmo):
         # Cosmo Function Write
@@ -41,14 +44,15 @@ class API:
         self.logger = cosmo.logger
         self.actions = actions.Actions(self)
 
-
         # self.find_skills() #Just an Idea Call
 
         # Apply skills from buffer into Cosmo
+        if len(self.api_skill.intents) != 0:
+            self.cosmo.skills.append(self.api_skill)
         for skillb in self.skills_buffer:
             skill_inst = skillb(self)
             skill_inst.setup()
-            self.cosmo.skills.append(skill_inst)  #Create Skill Instance
+            self.cosmo.skills.append(skill_inst)  # Create Skill Instance
             i = 0
             for skill_intent in skill_inst.intents:
                 skill_inst.intents[i] = skill_intent(self, skill_inst)

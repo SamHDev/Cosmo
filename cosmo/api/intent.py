@@ -6,21 +6,32 @@ import random, re
 from .argtypes import ArgumentType
 from .argtypes import ArgumentTypeError
 
+from functools import partial, wraps
 
-class IntentClass:
-    def __init__(self, api):
-        self.api = api
 
-    def __call__(self, **kwargs):
-        return Intent(api=self.api, **kwargs)
+def getIntentHandler(api):
+    from functools import wraps
+
+    def decorator(*in_args, **in_kwargs):
+        def inner_function(function):
+            intent = Intent(api, *in_args, **in_kwargs)
+            intent.add_callback(function)
+            api.api_skill.register_intent(intent)
+            @wraps(function)
+            def wrapper(*args, **kwargs):
+                function(*args, **kwargs)
+
+            return wrapper
+        return inner_function
+
+    return decorator
 
 
 # Intent Wrapper
 class Intent:
-    def __init__(self, api, skill, phrases=(), custom_argument_types=None):
+    def __init__(self, api, phrases=(), custom_argument_types=None):
         # Base shit to store more shit
         self.api = api
-        self.skill = skill
         self.phrases = []
         self.arguments = []
         for phrase in phrases:
