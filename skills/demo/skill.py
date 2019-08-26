@@ -17,10 +17,10 @@ if not file.exists():
 class DemoSkill(api.Skill):
     def setup(self):
         self.register_intent(self.HelloIntent)
-
-    class HelloIntent(api.Intent):
+        
+    class HelloIntent(api.IntentClass):
         def setup(self):
-            self.add_phrase("hello")
+            self.add_raw_phrase("hello")
             self.add_callback(self.ex_callback)
 
         def ex_callback(self, e):

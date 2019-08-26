@@ -17,10 +17,9 @@ class IntentClass:
 
 # Intent Wrapper
 class Intent:
-    def __init__(self, api, skill, phrases=(), custom_argument_types=None):
+    def __init__(self, api, phrases=(), custom_argument_types=None):
         # Base shit to store more shit
         self.api = api
-        self.skill = skill
         self.phrases = []
         self.arguments = []
         for phrase in phrases:
@@ -34,16 +33,9 @@ class Intent:
         pass
 
     # Add Phrases, Arguments and Callbacks
-    def add_phrase(self, phrase_name: str, custom_argument_types=None, allow_hardcode=True):
-        if not phrase_name in self.api.phrases.keys():
-            if allow_hardcode == False:
-                raise PhraseNotFoundError(phrase_name)
-            text = phrase_name
-        else:
-            text = self.api.phrases[phrase_name]
-
-        self.phrases.append(IntentPhrase(text))
-        for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", text):
+    def add_raw_phrase(self, phrase: str, custom_argument_types=None):
+        self.phrases.append(IntentPhrase(phrase))
+        for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", phrase):
             # Get class of argument type
             if arg[1] in dir(ArgumentType) or arg[1] == "":
                 argtype = getattr(ArgumentType, (arg[1] if arg[1] != "" else "String"))  # Default type is string
@@ -58,6 +50,13 @@ class Intent:
                 default = None
 
             self.add_argument(name=arg[0], atype=argtype, default=default, required=arg[3] == "!")
+
+    def add_phrase(self, phrase_name: str, custom_argument_types=None):
+        if not phrase_name in self.api.phrases.keys():
+            raise PhraseNotFoundError(phrase_name)
+        else:
+            text = self.api.phrases[phrase_name]
+        self.add_raw_phrase(text,custom_argument_types)
 
     def add_argument(self, name, atype, default=None, required=False):
         self.arguments.append(IntentArgument(name, atype, default, required))
