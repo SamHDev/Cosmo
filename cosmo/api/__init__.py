@@ -5,6 +5,7 @@ from . import fs
 from cosmo import logger
 from . import contexts
 from . import argtypes
+from . import utils
 
 
 # Copyright (C) 2019 CosmoHome, LLC
