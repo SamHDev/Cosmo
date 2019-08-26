@@ -2,3 +2,5 @@ gevent
 wireless
 packaging
 wifi
+gtts
+playsound

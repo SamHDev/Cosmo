@@ -1,6 +1,6 @@
 {
   "name": "Demo Skill",
-  "authors": ["SamHDev"],
+  "authors": ["SamHDev", "Gleb Koval"],
   "version": 1,
   "update_url": null,
   "main": "skill.py"

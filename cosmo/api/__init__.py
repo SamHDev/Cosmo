@@ -13,13 +13,13 @@ from . import argtypes
 
 # API Wrapper (New API System)
 class API:
-    def __init__(self):
+    def __init__(self,debug=False):
         # Prepare Class types and Vars
         self.cosmo = None
         self.Skill = skill.Skill
-        # self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
         self.Intent = intent.Intent
         self.IntentHandler = intent.getIntentHandler(self)  # New Decorator for Glebs Intent System
+
         self.skills_buffer = []
 
         # Load Manifest and find module path.
@@ -31,7 +31,7 @@ class API:
         self.phrases = fs.get_phrases(self, "en")
 
         # Make Sub-Logger
-        self.logger = logger.SubLogger(self.name)
+        self.logger = logger.SubLogger(self.name,debug=debug)
 
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
@@ -60,9 +60,14 @@ class API:
             self.cosmo.skills.append(skill_inst)  # Create Skill Instance
             i = 0
             for skill_intent in skill_inst.intents:
-                skill_inst.intents[i] = skill_intent(self, skill_inst)
-                skill_inst.intents[i].setup()
+                if type(skill_intent) == type:
+                    skill_inst.intents[i] = skill_intent(self)
+                    skill_inst.intents[i].setup()
+                else:
+                    skill_inst.intents[i] = skill_intent
+                    skill_inst.intents[i].setup()
                 i += 1
+
 
     def register_skill(self, skill: skill.Skill):
         # Write Skills to skill buffer
