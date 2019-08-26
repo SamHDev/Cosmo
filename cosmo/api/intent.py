@@ -11,15 +11,16 @@ class IntentClass:
     def __init__(self, api):
         self.api = api
 
-    def __call__(self, phrases=(), custom_argument_types=None):
-        return Intent(api=self.api, phrases=phrases, custom_argument_types=custom_argument_types)
+    def __call__(self, **kwargs):
+        return Intent(api=self.api, **kwargs)
 
 
 # Intent Wrapper
 class Intent:
-    def __init__(self, api, phrases=(), custom_argument_types=None):
+    def __init__(self, api, skill, phrases=(), custom_argument_types=None):
         # Base shit to store more shit
         self.api = api
+        self.skill = skill
         self.phrases = []
         self.arguments = []
         for phrase in phrases:
@@ -28,19 +29,18 @@ class Intent:
         self.callbacks = []
         self.callbacks_random = True
 
-    # dunno what this is for
+    # For Overwrite
     def setup(self):
         pass
 
     # Add Phrases, Arguments and Callbacks
-    def add_phrase(self, phrase_name: str, custom_argument_types=None, dev_mode=True):
+    def add_phrase(self, phrase_name: str, custom_argument_types=None, allow_hardcode=True):
         if not phrase_name in self.api.phrases.keys():
-            if dev_mode == False:
+            if allow_hardcode == False:
                 raise PhraseNotFoundError(phrase_name)
             text = phrase_name
         else:
             text = self.api.phrases[phrase_name]
-
 
         self.phrases.append(IntentPhrase(text))
         for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", text):
