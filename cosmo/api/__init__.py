@@ -3,6 +3,7 @@ from . import intent
 from . import actions
 from . import fs
 from cosmo import logger
+
 from . import contexts
 
 # Copyright (C) 2019 CosmoHome, LLC
@@ -25,7 +26,7 @@ class API:
         self.module = fs.get_invoking_module(2)
 
         # Make Sub-Logger
-        self.logger = logger.SkillLogger(self.name,debug=debug)
+        self.logger = logger.SubLogger(self.name)
 
         # Load phrases
         self.phrases = fs.get_phrases(self, "en")
@@ -73,3 +74,8 @@ class API:
         for var in dir(self.module):
             if isinstance(getattr(self.module, var), skill.Skill):
                 self.skills_buffer.append(getattr(self.module, var))
+from . import skill
+from . import intent
+from . import actions
+from . import fs
+from . import logger
