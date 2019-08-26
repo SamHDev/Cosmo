@@ -33,7 +33,7 @@ class Intent:
     # Add Phrases, Arguments and Callbacks
     def add_phrase(self, phrase_name:str, custom_argument_types=None):
         if not phrase_name in self.api.phrases:
-            raise PhraseNotFoundError
+            raise PhraseNotFoundError(phrase_name)
 
         self.phrases.append(IntentPhrase(self.api.phrases[phrase_name]))
         for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", self.api.phrases[phrase_name]):

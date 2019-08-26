@@ -49,7 +49,7 @@ class Wifi:
     def status(self):
         if not self.check_platform():
             self.logger.warn("Failed to Execute 'Status Check' due to platform compatibility Issues.")
-            return None
+            return False, None
         self.logger.debug(f"Checking Status of interface '{self.modem}'")
         try:
             out = subprocess.check_output(f"{nmcli} d show {self.modem}", shell=True).decode("UTF-8")
@@ -109,7 +109,7 @@ class Wifi:
     def _register_exit_handler(self):
         @atexit.register
         def _exit_handler():
-            if self.status()[0]:
+            if self.status != None and self.status()[0]:
                 self.logger.warn("Stopping Wifi Connection, as was not closed before code exit. ")
                 self.disconnect()
 

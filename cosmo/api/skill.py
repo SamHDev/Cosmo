@@ -10,6 +10,9 @@ class Skill:
         self.intents = []
         self.find_intents()
 
+    def setup(self):
+        pass
+
     def register_intent(self, intent):
         self.intents.append(intent)
 

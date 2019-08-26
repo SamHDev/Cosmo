@@ -11,27 +11,27 @@ from . import contexts
 
 # API Wrapper (New API System)
 class API:
-    def __init__(self):
-        # Prepare Class types and Vars
-        self.cosmo = None
-        self.Skill = skill.Skill
-        self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
-        self.skills_buffer = []
-
+    def __init__(self,debug=False):
         # Load Manifest and find module path.
         self.path, self.root = fs.get_path()
         self.name, self.authors, self.version = fs.get_manifest(self)
         self.module = fs.get_invoking_module(2)
 
+        # Make Sub-Logger
+        self.logger = logger.SkillLogger(self.name,debug=debug)
+
         # Load phrases
         self.phrases = fs.get_phrases(self,"en")
-
-        # Make Sub-Logger
-        self.logger = logger.SkillLogger(self.name)
 
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
         self.context = contexts.Contexts(self) # Context API
+
+        # Prepare Class types and Vars
+        self.cosmo = None
+        self.Skill = skill.Skill
+        self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
+        self.skills_buffer = []
 
 
     def _set_cosmo(self, cosmo):

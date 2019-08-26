@@ -7,7 +7,7 @@ import datetime
 
 # Logger Config Handler
 logger_default_appname = "Cosmo"
-logger_config = {"format": 0, "debug": True, "colour": True}
+logger_config = {"format": 0, "debug": True, "colour": True, "style": 0}
 import json
 
 try:

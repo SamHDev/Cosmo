@@ -1,2 +1,8 @@
 .idea/
 data/*
+cosmo/__pycache__/
+cosmo/api/__pycache__/
+cosmo/core/__pycache__/
+cosmo/core/device/__pycache__/
+cosmo/core/device/api_modules/__pycache__/
+skills/demo/__pycache__/
