@@ -212,7 +212,8 @@ def find_intent(intents, query, s_threshold=0.8, r_threshold=4):
 
     for intent in intents:  # Loop Through Intents
         for phrase in intent.phrases:  # Loop Through Phrases
-
+            phrase = phrase.text
+            #print("1",phrase)
             # Search
             score, args = find_search(intent, phrase, query, s_threshold)
             results.append([score, intent, phrase, args])

@@ -60,11 +60,11 @@ class Cosmo:
 
         @self.command_rec.callback
         def callback2(cmd):
-            intent = find_intent(self, cmd)
-            if intent is not None:
-                execute_intent(self, intent)
+            msg = Message(cmd)
+            if msg.search(self):
+                msg.execute(self)
             else:
-                print("FAILED")
+                print("Failed")
             time.sleep(1)
             self.trigger_rec.listen()
 

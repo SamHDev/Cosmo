@@ -4,13 +4,14 @@
 
 from . import handler
 
-def search(cosmo,msg):
+
+def search(cosmo, msg):
     intents = []
     for skill in cosmo.skills:
         for intent in skill.intents:
             intents.append(intent)
 
-    print(handler.find_intent(intents, msg.query))
+    return handler.find_intent(intents, msg.query)
 
 
 class Message:
@@ -21,7 +22,19 @@ class Message:
         self.arguments = {}
 
     def search(self, cosmo):
-        return search(cosmo, self)
+        valid, intent, score, args = search(cosmo, self)
+        self.result = MessageResult(valid, intent, score, args)
+        return valid
 
-    def execute(self):
-        pass
+    def execute(self, cosmo):
+        if self.result.valid:
+            self.arguments = self.result.arguments
+            self.result.intent.invoke(cosmo,self)
+
+
+class MessageResult:
+    def __init__(self, valid, intent, score, args):
+        self.valid = valid
+        self.intent = intent
+        self.score = score
+        self.arguments = args

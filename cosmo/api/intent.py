@@ -29,14 +29,15 @@ def getIntentHandler(api):
 
 # Intent Wrapper
 class Intent:
-    def __init__(self, api, phrases=(), custom_argument_types=None):
+    def __init__(self, api, phrases=[], custom_argument_types=None, arguments={}):
         # Base shit to store more shit
         self.api = api
         self.phrases = []
         self.arguments = []
         for phrase in phrases:
             self.add_phrase(phrase, custom_argument_types)
-
+        for arg in arguments.keys():
+            self.arguments.append(IntentArgument(arg, arguments[arg], None, False))
         self.callbacks = []
         self.callbacks_random = True
 
@@ -52,7 +53,7 @@ class Intent:
             text = phrase_name
         else:
             text = self.api.phrases[phrase_name]
-
+        #print("0", text)
         self.phrases.append(IntentPhrase(text))
         for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", text):
             # Get class of argument type
@@ -82,12 +83,13 @@ class Intent:
 
     # INVOKE THE FUCKING INTENT BITCHES
     def invoke(self, cosmo, *args, **kwargs):
+        #print(cosmo,*args,**kwargs)
         # RANDOM CALLBACK SHIT
         if self.callbacks_random:
-            random.choice(self.callbacks)(*args, **kwargs)
+            random.choice(self.callbacks)(None,*args, **kwargs)
         else:
             for callback in self.callbacks:
-                callback(*args, **kwargs)
+                callback(None, *args, **kwargs)
 
 
     def find_argument(self, name):
@@ -112,6 +114,6 @@ class PhraseNotFoundError(Exception):
 class IntentArgument:
     def __init__(self, name, atype, default, required):
         self.name = name
-        self.atype = atype
+        self.atype = atype()
         self.default = default
         self.required = required

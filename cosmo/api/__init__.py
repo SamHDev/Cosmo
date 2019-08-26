@@ -4,6 +4,7 @@ from . import actions
 from . import fs
 from cosmo import logger
 from . import contexts
+from . import argtypes
 
 
 # Copyright (C) 2019 CosmoHome, LLC
@@ -35,6 +36,10 @@ class API:
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
         self.context = contexts.Contexts(self)  # Context API
+
+        self.ArgumentType = argtypes.ArgumentType
+        self.IntentArgumentType = argtypes.IntentArgumentType
+        self.IntentArgumentTypeRegex = argtypes.IntentArgumentTypeFromRegex
 
         self.api_skill = skill.Skill(self)  # Global Skill for Gleb's Awsome Register System
 
