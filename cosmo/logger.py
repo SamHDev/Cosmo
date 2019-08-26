@@ -16,7 +16,7 @@ except:
     pass  # Something Went Wrong, Oh well, default it is then.
 
 logger_colours = dict(reset="\u001b[0m", white="\u001b[37m", black="\u001b[30m", red="\u001b[31m", green="\u001b[32m",
-                     yellow="\u001b[33m", blue="\u001b[34m", purple="\u001b[35m", cyan="\u001b[36m")
+                      yellow="\u001b[33m", blue="\u001b[34m", purple="\u001b[35m", cyan="\u001b[36m")
 
 logger_styles = [
     {
@@ -27,7 +27,7 @@ logger_styles = [
         "error": "ERRR",
         "fatal": "FATAL",
         "debug": "Debug",
-        "separator": "-"*70
+        "separator": "-" * 70
     },
     {
         "root": "{colour_pre} {time}/{app} {type} {msg}{colour_suf}",
@@ -37,7 +37,7 @@ logger_styles = [
         "error": "!! ",
         "fatal": "!!!",
         "debug": ">  ",
-        "separator": "-"*70
+        "separator": "-" * 70
     }
 ]
 
@@ -77,8 +77,8 @@ class Logger:
                 colour_pre = colour
             colour_suf = logger_colours["reset"]
         return logger_styles[self.config["style"]]["root"].format(app=app_name, time=f_time, type=ltype,
-                                                                            msg=msg, colour_pre=colour_pre,
-                                                                            colour_suf=colour_suf)
+                                                                  msg=msg, colour_pre=colour_pre,
+                                                                  colour_suf=colour_suf)
 
     def log(self, log_type, log_msg, app_name=None, colour=None):
         _log(self._format(log_type, log_msg, app_name=app_name, colour=colour))
@@ -110,3 +110,8 @@ class Logger:
 
     def separator(self):
         _log(logger_styles[self.config["style"]]["separator"])
+
+
+class SubLogger(Logger):
+    def __init__(self, app_name, debug=None, config=logger_config):
+        super().__init__(debug, app_name, config)

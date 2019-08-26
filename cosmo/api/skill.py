@@ -6,9 +6,13 @@ from . import intent
 
 # Skill Wrapper
 class Skill:
-    def __init__(self):
+    def __init__(self, api):
+        self.api = api
         self.intents = []
         self.find_intents()
+
+    def setup(self):
+        pass
 
     def register_intent(self, intent):
         self.intents.append(intent)

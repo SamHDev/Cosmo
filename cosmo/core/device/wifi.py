@@ -10,7 +10,7 @@ import subprocess
 import re
 import platform
 import atexit
-from ...api.logger import SkillLogger
+from cosmo import logger
 
 nmcli = "nmcli"
 
@@ -25,7 +25,7 @@ class Wifi:
         self.modem = None
 
         # Custom Logger time from that lengthy import above
-        self.logger = SkillLogger("WifiManager")
+        self.logger = logger.SubLogger("WifiManager")
 
         self._register_exit_handler()
 
@@ -122,7 +122,7 @@ class WifiHotspot:
         self.con_name = "cosmo_host"
 
         # Custom Logger time from that lengthy import above
-        self.logger = SkillLogger("WifiHotspot")
+        self.logger = logger.SubLogger("WifiHotspot")
 
         self._register_exit_handler()
 

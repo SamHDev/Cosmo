@@ -1,4 +1,4 @@
-from .logger import Logger
+from cosmo.logger import Logger, SubLogger
 from .skills import find_skills, load_skills
 from .message import find_intent, execute_intent
 # from .recognition import * #Demo Voice Rec

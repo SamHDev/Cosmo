@@ -2,7 +2,7 @@ from . import skill
 from . import intent
 from . import actions
 from . import fs
-from . import logger
+from cosmo import logger
 from . import contexts
 
 # Copyright (C) 2019 CosmoHome, LLC
@@ -15,7 +15,8 @@ class API:
         # Prepare Class types and Vars
         self.cosmo = None
         self.Skill = skill.Skill
-        self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
+        #self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
+        self.Intent = intent.Intent
         self.skills_buffer = []
 
         # Load Manifest and find module path.
@@ -27,7 +28,7 @@ class API:
         self.phrases = fs.get_phrases(self, "en")
 
         # Make Sub-Logger
-        self.logger = logger.SkillLogger(self.name)
+        self.logger = logger.SubLogger(self.name)
 
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
@@ -45,7 +46,14 @@ class API:
 
         # Apply skills from buffer into Cosmo
         for skillb in self.skills_buffer:
-            self.cosmo.skills.append(skillb)
+            skill_inst = skillb(self)
+            skill_inst.setup()
+            self.cosmo.skills.append(skill_inst)  #Create Skill Instance
+            i = 0
+            for skill_intent in skill_inst.intents:
+                skill_inst.intents[i] = skill_intent(self, skill_inst)
+                skill_inst.intents[i].setup()
+                i += 1
 
     def register_skill(self, skill: skill.Skill):
         # Write Skills to skill buffer

@@ -1,69 +1,30 @@
-# Sam's Better epic Minecraft CosmoHome Skill System suck my nipples
+# Sam's Better epic Roblox CosmoHome Skill System suck my big fat juicy nipples the sequel: the return of hitler
+
+#Not Finished
 
 # GET API
 import cosmo.api as cosmo
 
-# Other shitty imports stfu python
 import datetime
 
-# Create an API Object and Skill Cosmo
 api = cosmo.API()
-skill = api.Skill()
-api.register_skill(skill)
 
-# Create a file
-file = api.fs.request_data_file_json("data.json")
-file.exist_create()
-
-api.logger.info("HELLO!")
-
-# Create an Intent
-hello_intent = api.Intent()
-# Add A Phrase
-hello_intent.add_phrase("Who Are You")
+file = api.fs.request_data_file("demo.txt")
+if not file.exists():
+    file.create()
 
 
-# Set a Callback
-@hello_intent.callback
-def hello_intent_callback(msg):
-    api.actions.speak("Hi I'm Cosmo! The Smart AI Assistant!")
+class DemoSkill(api.Skill):
+    def setup(self):
+        self.register_intent(self.HelloIntent)
+
+    class HelloIntent(api.Intent):
+        def setup(self):
+            self.add_phrase("hello")
+            self.add_callback(self.ex_callback)
+
+        def ex_callback(self, e):
+            api.actions.speak("Hello! I'm Cosmo")
 
 
-# Register to Skill
-skill.register_intent(hello_intent)
-
-help_intent = api.Intent()
-help_intent.add_phrase("What do you do")
-
-
-@help_intent.callback
-def help_intent_callback(msg):
-    api.actions.speak(
-        "Glad You Asked! I Can Do Things Ranging From Telling You The Time All The Way To Ordering Food! All You Need "
-        "To Do Is Just Ask!")
-
-
-skill.register_intent(help_intent)
-
-age_intent = api.Intent()
-age_intent.add_phrase("How Old Are You")
-
-
-@age_intent.callback
-def age_intent_callback(msg):
-    api.actions.speak_random(["Looking at my Internals I feel young!", "I'm born 2019"])
-
-
-skill.register_intent(age_intent)
-
-time_intent = api.Intent()
-time_intent.add_phrase("What's The Time")
-
-
-@time_intent.callback
-def time_intent_callback(msg):
-    time_output = datetime.datetime.now().strftime("%I : %M  %p")
-    api.actions.speak(f"Right now is {time_output}")
-
-
-skill.register_intent(time_intent)
+api.register_skill(DemoSkill)
