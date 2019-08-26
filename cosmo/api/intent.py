@@ -6,13 +6,25 @@ import random, re
 from .argtypes import ArgumentType
 from .argtypes import ArgumentTypeError
 
+from functools import partial, wraps
 
-class IntentClass:
-    def __init__(self, api):
-        self.api = api
 
-    def __call__(self, **kwargs):
-        return Intent(api=self.api, **kwargs)
+def getIntentHandler(api):
+    from functools import wraps
+
+    def decorator(*in_args, **in_kwargs):
+        def inner_function(function):
+            intent = Intent(api, *in_args, **in_kwargs)
+            intent.add_callback(function)
+            api.api_skill.register_intent(intent)
+            @wraps(function)
+            def wrapper(*args, **kwargs):
+                function(*args, **kwargs)
+
+            return wrapper
+        return inner_function
+
+    return decorator
 
 
 # Intent Wrapper
@@ -76,6 +88,13 @@ class Intent:
         else:
             for callback in self.callbacks:
                 callback(*args, **kwargs)
+
+
+    def find_argument(self, name):
+        for arg in self.arguments:
+            if name == arg.name:
+                return arg
+        return None
 
 
 # INTENT PHRASE STORE

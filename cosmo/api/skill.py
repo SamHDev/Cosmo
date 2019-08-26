@@ -4,6 +4,8 @@
 
 from . import intent
 from cosmo.logger import Logger
+from functools import wraps
+
 
 # Skill Wrapper
 class Skill:
