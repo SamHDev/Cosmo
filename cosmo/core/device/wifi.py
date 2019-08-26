@@ -109,7 +109,7 @@ class Wifi:
     def _register_exit_handler(self):
         @atexit.register
         def _exit_handler():
-            if self.status()[0]:
+            if self.status != None and self.status()[0]:
                 self.logger.warn("Stopping Wifi Connection, as was not closed before code exit. ")
                 self.disconnect()
 

@@ -37,14 +37,13 @@ class Intent:
     def add_phrase(self, phrase_name: str, custom_argument_types=None, allow_hardcode=True):
         if not phrase_name in self.api.phrases.keys():
             if allow_hardcode == False:
-                raise PhraseNotFoundError()
+                raise PhraseNotFoundError(phrase_name)
             text = phrase_name
         else:
             text = self.api.phrases[phrase_name]
 
         self.phrases.append(IntentPhrase(text))
-        for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))",
-                              text):
+        for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", text):
             # Get class of argument type
             if arg[1] in dir(ArgumentType) or arg[1] == "":
                 argtype = getattr(ArgumentType, (arg[1] if arg[1] != "" else "String"))  # Default type is string
