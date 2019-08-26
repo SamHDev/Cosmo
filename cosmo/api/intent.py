@@ -35,7 +35,7 @@ class Intent:
         self.phrases = []
         self.arguments = []
         for phrase in phrases:
-            self.add_phrase(phrase, custom_argument_types)
+            self.add_phrases(phrase, custom_argument_types)
         for arg in arguments.keys():
             self.arguments.append(IntentArgument(arg, arguments[arg], None, False))
         self.callbacks = []
@@ -67,19 +67,13 @@ class Intent:
             self.add_argument(name=arg[0], atype=argtype, default=default, required=arg[3] == "!")
 
 
-    def add_phrase(self, phrase_name: str, custom_argument_types=None):
-        if not phrase_name in self.api.phrases.keys():
+    def add_phrases(self, phrase_name: str, custom_argument_types=None):
+        if not phrase_name in self.api.phrases:
             raise PhraseNotFoundError(phrase_name)
         else:
-            text = self.api.phrases[phrase_name]
-        self.add_raw_phrase(text, custom_argument_types)
-
-    def add_phrase(self, phrase_name: str, custom_argument_types=None):
-        if not phrase_name in self.api.phrases.keys():
-            raise PhraseNotFoundError(phrase_name)
-        else:
-            text = self.api.phrases[phrase_name]
-        self.add_raw_phrase(text,custom_argument_types)
+            texts = self.api.phrases[phrase_name]
+        for text in texts:
+            self.add_raw_phrase(text, custom_argument_types)
 
     def add_argument(self, name, atype, default=None, required=False):
         self.arguments.append(IntentArgument(name, atype, default, required))

@@ -28,8 +28,9 @@ class API:
         self.name, self.authors, self.version = fs.get_manifest(self)
         self.module = fs.get_invoking_module(2)
 
-        # Load phrases
+        # Load phrases and speech
         self.phrases = fs.get_phrases(self, "en")
+        self.speech = fs.get_speech(self, "en")
 
         # Make Sub-Logger
         self.logger = logger.SubLogger(self.name,debug=debug)
