@@ -3,7 +3,6 @@ from . import intent
 from . import actions
 from . import fs
 from cosmo import logger
-
 from . import contexts
 
 # Copyright (C) 2019 CosmoHome, LLC
@@ -25,9 +24,6 @@ class API:
         self.name, self.authors, self.version = fs.get_manifest(self)
         self.module = fs.get_invoking_module(2)
 
-        # Make Sub-Logger
-        self.logger = logger.SubLogger(self.name)
-
         # Load phrases
         self.phrases = fs.get_phrases(self, "en")
 
@@ -37,12 +33,6 @@ class API:
         # Make classes for api to use
         self.fs = fs.FileAPI(self)  # FileSystem API
         self.context = contexts.Contexts(self) # Context API
-
-        # Prepare Class types and Vars
-        self.cosmo = None
-        self.Skill = skill.Skill
-        self.Intent = intent.IntentClass(self) # I did this to allow intents to access the api.
-        self.skills_buffer = []
 
 
     def _set_cosmo(self, cosmo):
@@ -74,8 +64,3 @@ class API:
         for var in dir(self.module):
             if isinstance(getattr(self.module, var), skill.Skill):
                 self.skills_buffer.append(getattr(self.module, var))
-from . import skill
-from . import intent
-from . import actions
-from . import fs
-from . import logger
