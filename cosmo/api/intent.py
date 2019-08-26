@@ -90,6 +90,13 @@ class Intent:
                 callback(*args, **kwargs)
 
 
+    def find_argument(self, name):
+        for arg in self.arguments:
+            if name == arg.name:
+                return arg
+        return None
+
+
 # INTENT PHRASE STORE
 class IntentPhrase:
     def __init__(self, text):

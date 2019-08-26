@@ -1,6 +1,6 @@
 from cosmo.logger import Logger, SubLogger
 from .skills import find_skills, load_skills
-from .message import find_intent, execute_intent
+from .message import Message
 # from .recognition import * #Demo Voice Rec
 from .recognition_text import *  # Demo Text Input
 import time
