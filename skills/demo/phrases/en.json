@@ -1,3 +1,3 @@
 {
-    "time": "what is the time in {city}"
+    "time": ["what is the time in {location}"]
 }

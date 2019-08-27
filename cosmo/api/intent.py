@@ -17,11 +17,15 @@ def getIntentHandler(api):
             intent = Intent(api, *in_args, **in_kwargs)
             intent.add_callback(function)
             api.api_skill.register_intent(intent)
+
+            return intent
+            ''' # Sam's stuff
             @wraps(function)
             def wrapper(*args, **kwargs):
                 function(*args, **kwargs)
 
             return wrapper
+            '''
         return inner_function
 
     return decorator
@@ -31,23 +35,25 @@ def getIntentHandler(api):
 class Intent:
     def __init__(self, api, phrases=[], custom_argument_types=None, arguments={}):
         # Base shit to store more shit
+        self.skill = None
         self.api = api
         self.phrases = []
         self.arguments = []
         for phrase in phrases:
             self.add_phrases(phrase, custom_argument_types)
-        for arg in arguments.keys():
+        for arg in arguments:
             self.arguments.append(IntentArgument(arg, arguments[arg], None, False))
         self.callbacks = []
         self.callbacks_random = True
+
+    def set_skill(self,skill):
+        self.skill = skill
 
     # For Overwrite
     def setup(self):
         pass
 
     # Add Phrases, Arguments and Callbacks
-
-
     def add_raw_phrase(self, phrase: str, custom_argument_types=None):
         self.phrases.append(IntentPhrase(phrase))
         for arg in re.findall(r"(?:\{([a-zA-Z0-9]+)(?:\:([a-zA-Z0-9]+))?(?:\:([a-zA-Z0-9\"]+))?\}(\!?))", phrase):
@@ -81,19 +87,18 @@ class Intent:
     def add_callback(self, func):
         self.callbacks.append(func)
 
-    def __call__(self, func):
-        self.add_callback(func)
-        return self  # This is a decorator to make making intents a lot shorter, so it has to return something (the intent with the method set as a callback)
+    def __call__(self, cosmo, *args, **kwargs):
+        self.invoke(cosmo, *args, **kwargs)
 
     # INVOKE THE FUCKING INTENT BITCHES
-    def invoke(self, cosmo, *args, **kwargs):
+    def invoke(self, cosmo, message):
         #print(cosmo,*args,**kwargs)
         # RANDOM CALLBACK SHIT
         if self.callbacks_random:
-            random.choice(self.callbacks)(None,*args, **kwargs)
+            random.choice(self.callbacks)(self.skill, cosmo, message)
         else:
             for callback in self.callbacks:
-                callback(None, *args, **kwargs)
+                callback(self.skill, cosmo, message)
 
 
     def find_argument(self, name):
