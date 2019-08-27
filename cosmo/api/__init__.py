@@ -5,6 +5,7 @@ from . import fs
 from cosmo import logger
 from . import contexts
 from . import argtypes
+from .argtypes import IntentArgumentType, IntentArgumentTypeFromRegex
 #from . import utils # wat for?
 
 
@@ -20,6 +21,7 @@ class API:
         self.Skill = skill.Skill
         self.Intent = intent.Intent
         self.IntentHandler = intent.getIntentHandler(self)  # New Decorator for Glebs Intent System
+        self.IntentArgumentType, self.IntentArgumentTypeFromRegex = IntentArgumentType, IntentArgumentTypeFromRegex
 
         self.skills_buffer = []
 

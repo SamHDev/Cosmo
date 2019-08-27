@@ -12,7 +12,7 @@ class Actions:
     def __init__(self, api):
         self.api = api
         
-    def speak(self, speech, format_list=(), format_dict={}):
+    def speak(self, speech, *format_list, **format_dict):
         if not speech in self.api.speech:
             raise SpeechNotFoundError(speech)
         else:
