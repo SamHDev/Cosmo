@@ -8,7 +8,7 @@ import time
 from .device import CosmoDevice
 
 
-# Cosmo Main Class (Session) (Quick Fix from Gleb's Code Removal. Fuck you gleb)
+# Cosmo Main Class (Session)
 class Cosmo:
     def __init__(self):
         # Create Logger
