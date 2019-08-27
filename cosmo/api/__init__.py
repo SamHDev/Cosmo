@@ -5,7 +5,8 @@ from . import fs
 from cosmo import logger
 from . import contexts
 from . import argtypes
-from . import utils
+from .argtypes import IntentArgumentType, IntentArgumentTypeFromRegex
+#from . import utils # wat for?
 
 
 # Copyright (C) 2019 CosmoHome, LLC
@@ -20,6 +21,7 @@ class API:
         self.Skill = skill.Skill
         self.Intent = intent.Intent
         self.IntentHandler = intent.getIntentHandler(self)  # New Decorator for Glebs Intent System
+        self.IntentArgumentType, self.IntentArgumentTypeFromRegex = IntentArgumentType, IntentArgumentTypeFromRegex
 
         self.skills_buffer = []
 
@@ -28,8 +30,9 @@ class API:
         self.name, self.authors, self.version = fs.get_manifest(self)
         self.module = fs.get_invoking_module(2)
 
-        # Load phrases
+        # Load phrases and speech
         self.phrases = fs.get_phrases(self, "en")
+        self.speech = fs.get_speech(self, "en")
 
         # Make Sub-Logger
         self.logger = logger.SubLogger(self.name,debug=debug)

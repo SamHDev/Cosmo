@@ -37,6 +37,10 @@ def get_phrases(api,language):
     with open(os.path.join(api.path, f"phrases/{language}.json")) as file:
         return json.load(file)
 
+def get_speech(api,language):
+    with open(os.path.join(api.path, f"speech/{language}.json")) as file:
+        return json.load(file)
+
 
 # File System Class
 class FileAPI:

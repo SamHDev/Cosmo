@@ -19,10 +19,11 @@ class Skill:
         pass
 
     def register_intent(self, intent):
+        intent.set_skill(self)
         self.intents.append(intent)
 
     # Just an Idea (Failed) VERY BIG FAILED
     def find_intents(self):
         for var in dir(self):
             if isinstance(getattr(self, var), intent.Intent):
-                self.intents.append(getattr(self,var))
+                self.register_intent(getattr(self,var))
