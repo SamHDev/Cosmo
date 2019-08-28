@@ -12,6 +12,8 @@ from . import reset as cosmo_reset
 from . import machine
 from . import discovery
 
+from . import remote
+
 # CosmoDevice Class This holds the device info from files, along side version checker and api for Cosmo. Kept it
 # separate from the Main Cosmo (Session) Class because it's got nothing to do with the main Skill Running and
 # Executing Function

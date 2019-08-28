@@ -1,4 +1,4 @@
-from . import discoveryapi as discovery
+import cosmodiscovery as discovery
 
 PORT = 12892
 SCHEME = "_discovery.cosmo.home_device"
