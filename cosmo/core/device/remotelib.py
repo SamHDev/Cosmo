@@ -9,14 +9,16 @@ class RemoteServer:
 
         self.endpoints = []
 
+
     def start(self):
         self.server.listen(self.host, self.port)
         self.start()
 
     def endpoint(self, name):
+        print("DEC 2 ", name)
         def wrapper(func):
             self.endpoints.append(RemoteServerEndpoint(func, name))
-        return wrapper
+            print("DEC 1-2 ", func)
 
 class RemoteServerEndpoint:
     def __init__(self, func, name):
@@ -24,11 +26,9 @@ class RemoteServerEndpoint:
         self.name = name
 
 
-class RemoteClient():
-    pass
+class RemoteServerModule:
+    def __init__(self):
+        pass
 
-server = RemoteServer()
 
-@server.endpoint("cmd.start_bash")
-def start_bash():
-    pass
+BashModule()

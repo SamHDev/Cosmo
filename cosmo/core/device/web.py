@@ -1,10 +1,3 @@
-# Sam's Base Web Device API
-# Copyright (C) 2019 CosmoHome, LLC
-# Unauthorized copying and usage of this file, via any medium is strictly prohibited
-# Proprietary and confidential
-# Written by Sam Huddart, SamHDev, https://github.com/samhdev
-# Note: Please ask permission from 'SamHDev' before modifying this file
-
 import flask
 from gevent.pywsgi import WSGIServer
 import threading

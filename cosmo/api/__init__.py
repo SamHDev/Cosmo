@@ -9,9 +9,6 @@ from .argtypes import IntentArgumentType, IntentArgumentTypeFromRegex
 #from . import utils # wat for?
 
 
-# Copyright (C) 2019 CosmoHome, LLC
-# Unauthorized copying and usage of this file, via any medium is strictly prohibited
-# Proprietary and confidential
 
 # API Wrapper (New API System)
 class API:

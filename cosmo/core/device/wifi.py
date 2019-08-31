@@ -1,7 +1,3 @@
-# Copyright (C) 2019 CosmoHome, LLC
-# Unauthorized copying and usage of this file, via any medium is strictly prohibited
-# Proprietary and confidential
-# Written by Sam Huddart, SamHDev, https://github.com/samhdev
 
 import wireless
 import wifi
